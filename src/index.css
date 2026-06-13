@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { @apply font-ui text-[16px] text-slate-800 bg-slate-50; }
+.read { @apply font-read text-[16px] leading-relaxed; }
+
+/* Print: only the synthesis sheet is visible */
+@media print {
+  body * { visibility: hidden; }
+  #synthesis-print, #synthesis-print * { visibility: visible; }
+  #synthesis-print { position: absolute; inset: 0; font-family: Arial, sans-serif; }
+}
