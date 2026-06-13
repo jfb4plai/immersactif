@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AudioEngine } from './AudioEngine'
 
 const LAYERS = ['whispers', 'corridor', 'chairs', 'bell']
@@ -11,7 +11,7 @@ export function useAudioLayers() {
     return () => engineRef.current?.stop()
   }, [])
 
-  async function init() {
+  const init = useCallback(async () => {
     if (engineRef.current) return
     const Ctx = window.AudioContext || window.webkitAudioContext
     if (!Ctx) return // no Web Audio: scene falls back to visual-only
@@ -25,15 +25,16 @@ export function useAudioLayers() {
     await engine.start()
     engineRef.current = engine
     setReady(true)
-  }
+  }, [])
 
-  function setIntensity(v) {
+  const setIntensity = useCallback((v) => {
     engineRef.current?.setIntensity(v)
-  }
+  }, [])
 
-  function stop() {
+  const stop = useCallback(() => {
     engineRef.current?.stop()
-  }
+  }, [])
 
-  return { init, setIntensity, stop, ready }
+  const api = useMemo(() => ({ init, setIntensity, stop, ready }), [init, setIntensity, stop, ready])
+  return api
 }
