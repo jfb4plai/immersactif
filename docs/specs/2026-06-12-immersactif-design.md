@@ -106,7 +106,7 @@ Chaque scène existe en variante fondamental / secondaire. Structure commune : m
 - React 18 + Vite 5 + Tailwind v3 (fix config : tailwind.config.js + postcss.config.js avec import.meta.url).
 - 100 % statique : pas de Supabase, pas d'IA, pas de clé API, pas de compte.
 - Audio : fichiers d'ambiance courts en boucle, mixés en couches via Web Audio API (gain par couche pour la montée progressive). Démarrage après geste utilisateur (bouton "entrer dans la scène"). Budget < 2 Mo total. Provenance : sons libres CC0 (freesound.org ou équivalent), complétés si besoin par synthèse Web Audio (néon, sonnerie) — aucun son sous licence restrictive.
-- Dossier : `claude-workspace/immersactif`. Repo GitHub `jfb4plai/ImmersActif` (créé dès le début), branche `main`. Vercel → `immersactif.jfb4plai.com`.
+- Dossier : `claude-workspace/immersactif`. Repo GitHub `jfb4plai/immersactif`, branche `main`. Vercel (URL `immersactif.vercel.app`) ; pas de sous-domaine dédié — lien depuis la landing `jfb4plai.com`.
 - Branding : teal #0a9370, orange #f97316, logo /plai-logo.jpg.
 
 ## Tests

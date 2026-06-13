@@ -49,7 +49,7 @@ Les quatre couches d'ambiance (`public/audio/*.wav`) sont **générées procédu
 
 ## Déploiement
 
-GitHub `jfb4plai/ImmersActif` (branche `main`) → Vercel → `immersactif.jfb4plai.com`. Application statique, aucune variable d'environnement requise.
+GitHub `jfb4plai/immersactif` (branche `main`) → Vercel (URL `immersactif.vercel.app`). Pas de sous-domaine dédié : l'app est référencée par un lien depuis la landing `jfb4plai.com`. Application statique, aucune variable d'environnement requise.
 
 ## Documentation
 
