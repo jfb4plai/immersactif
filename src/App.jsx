@@ -34,6 +34,7 @@ export default function App() {
           dispatch({ type: 'ACK_ETHICS' })
           dispatch({ type: 'SET_LEVEL', level })
           dispatch({ type: 'SET_MODE', mode })
+          dispatch({ type: 'RESET_RUN' }) // fresh matinée: energy back to 100, progress cleared
           if (mode === 'animateur') {
             setView('hub')
           } else {
@@ -48,6 +49,9 @@ export default function App() {
   function openScene(id) {
     if (id === 'social') return setView('social')
     if (id === 'synthesis') return setView('synthesis')
+    // Replaying a single scene from the hub: start it on a full gauge so the
+    // drop is legible again (the sequential Découverte run keeps its cumul).
+    dispatch({ type: 'RESET_ENERGY' })
     setActiveScene(id)
     setView('scene')
   }

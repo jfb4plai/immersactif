@@ -48,6 +48,11 @@ export function appReducer(state, action) {
         },
       }
     }
+    case 'RESET_ENERGY':
+      return { ...state, energy: 100 }
+    case 'RESET_RUN':
+      // Fresh parcours: refill energy and clear progress (keeps selected gestures).
+      return { ...state, energy: 100, completedScenes: [] }
     case 'RESET':
       return initialState
     default:

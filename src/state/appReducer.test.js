@@ -58,4 +58,21 @@ describe('appReducer', () => {
     s = appReducer(s, { type: 'RESET' })
     expect(s).toEqual(initialState)
   })
+
+  it('RESET_ENERGY refills energy to 100', () => {
+    let s = appReducer(initialState, { type: 'DRAIN_ENERGY', amount: 70 })
+    expect(s.energy).toBe(30)
+    s = appReducer(s, { type: 'RESET_ENERGY' })
+    expect(s.energy).toBe(100)
+  })
+
+  it('RESET_RUN refills energy, clears completed scenes, keeps gestures', () => {
+    let s = appReducer(initialState, { type: 'DRAIN_ENERGY', amount: 70 })
+    s = appReducer(s, { type: 'COMPLETE_SCENE', scene: 'sensory' })
+    s = appReducer(s, { type: 'TOGGLE_GESTURE', id: 'g1', label: 'X' })
+    s = appReducer(s, { type: 'RESET_RUN' })
+    expect(s.energy).toBe(100)
+    expect(s.completedScenes).toEqual([])
+    expect(s.selectedGestures.g1).toBeDefined()
+  })
 })
