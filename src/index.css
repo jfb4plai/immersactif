@@ -12,3 +12,26 @@ body { @apply font-ui text-[16px] text-slate-800 bg-slate-50; }
   #synthesis-print, #synthesis-print * { visibility: visible; }
   #synthesis-print { position: absolute; inset: 0; font-family: Arial, sans-serif; }
 }
+
+/* Optional light-hypersensitivity effects (sensory scene).
+   SAFE BY DESIGN: low frequency (~2.4 Hz, under the WCAG 3-flashes/s ceiling),
+   low contrast (peak opacity driven by --fmax, kept small), no high-luminance strobe.
+   Amplitude is supplied per-element via the --fmax custom property. */
+@keyframes neon-flicker {
+  0%   { opacity: 0; }
+  46%  { opacity: var(--fmax, 0); }
+  54%  { opacity: var(--fmax, 0); }
+  100% { opacity: 0; }
+}
+@keyframes light-drift {
+  0%   { transform: translate(-12%, -6%); }
+  50%  { transform: translate(12%, 6%); }
+  100% { transform: translate(-12%, -6%); }
+}
+.fx-flicker { animation: neon-flicker 0.42s linear infinite; }
+.fx-drift   { animation: light-drift 7s ease-in-out infinite; }
+
+/* Defense in depth: never animate for users who asked to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  .fx-flicker, .fx-drift { animation: none; }
+}

@@ -52,6 +52,7 @@ export function SensoryScene({ level, onDone }) {
   const audio = useAudioLayers()
   const [started, setStarted] = useState(false)
   const [intensity, setIntensity] = useState(START_INTENSITY)
+  const [lightFx, setLightFx] = useState(false) // opt-in visual hypersensitivity effects
   const reduced = REDUCED()
   const raf = useRef(null)
   const t0 = useRef(0)
@@ -118,6 +119,26 @@ export function SensoryScene({ level, onDone }) {
             ? '⚠ Cette scène comporte du son et une consigne dite à voix haute. Réglez votre volume.'
             : '⚠ Cette scène comporte du son. Réglez votre volume.'}
         </p>
+
+        {!reduced && (
+          <label className="flex items-start gap-2 rounded-lg border border-slate-200 p-3 text-sm">
+            <input
+              type="checkbox"
+              checked={lightFx}
+              onChange={(e) => setLightFx(e.target.checked)}
+              className="mt-1"
+            />
+            <span>
+              <span className="font-medium">Activer les effets lumineux</span> — scintillement de
+              néon et éblouissement, pour approcher l'hypersensibilité à la lumière.{' '}
+              <span className="text-amber-700">
+                Déconseillé en cas de sensibilité à la lumière ou d'épilepsie (l'épilepsie est une
+                comorbidité fréquente du TSA). Effets volontairement doux, sans flash rapide.
+              </span>
+            </span>
+          </label>
+        )}
+
         <button onClick={begin} className="rounded-lg bg-plai-teal px-4 py-2 font-semibold text-white">
           Entrer dans la scène
         </button>
@@ -162,7 +183,38 @@ export function SensoryScene({ level, onDone }) {
         className="pointer-events-none absolute inset-0 bg-slate-900"
         style={{ opacity: intensity * 0.25 }}
       />
-      <p className="text-sm text-slate-500">Intensité : {Math.round(intensity * 100)}%</p>
+
+      {lightFx && (
+        <>
+          {/* Low-frequency, low-contrast neon flicker (amplitude rises with intensity) */}
+          <div
+            aria-hidden
+            className="fx-flicker pointer-events-none absolute inset-0 bg-white"
+            style={{ '--fmax': intensity * 0.14 }}
+          />
+          {/* Progressive glare / éblouissement (no flashing) */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              opacity: intensity * 0.2,
+              background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,0.9), transparent 60%)',
+            }}
+          />
+          {/* Slow peripheral drift (gentle movement, not a rotating beam) */}
+          <div
+            aria-hidden
+            className="fx-drift pointer-events-none absolute"
+            style={{
+              inset: '-25%',
+              opacity: intensity * 0.12,
+              background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), transparent 55%)',
+            }}
+          />
+        </>
+      )}
+
+      <p className="relative text-sm text-slate-500">Intensité : {Math.round(intensity * 100)}%</p>
 
       {done && (
         <div className="relative space-y-3">
