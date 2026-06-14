@@ -8,16 +8,34 @@ const REDUCED = () =>
 
 const SPEECH_OK = typeof window !== 'undefined' && 'speechSynthesis' in window
 
-// The actual spoken instruction the user must try to catch through the noise.
+// Noise never starts in silence (otherwise the first instruction is heard perfectly
+// and the exercise loses its point). 0.6 = the room is already loud when step 1 is said.
+// Tune this single value if it feels too masked (lower) or too clear (higher).
+const START_INTENSITY = 0.6
+const DURATION = 20000
+
+// A real multi-step oral consigne: each step is a single action verb. The steps are
+// timed onto the rising-noise curve, so step 1 lands at the floor (catchable) and the
+// last step lands near full intensity (likely buried) — the lived "I missed the end".
 const CONSIGNE = {
-  fondamental: 'Entoure le chat, puis colorie l’étoile en bleu.',
-  secondaire: 'Note la date, souligne le titre, puis réponds à la question trois.',
+  fondamental: [
+    'Entoure le chat en rouge.',
+    'Souligne le mot « école ».',
+    "Colorie l'étoile en bleu, puis lève la main.",
+  ],
+  secondaire: [
+    'Note la date dans la marge.',
+    'Souligne le titre du document.',
+    'Réponds à la question trois, puis rends ta feuille.',
+  ],
 }
 
-function speakConsigne(text) {
+// When each step is spoken, as a fraction of DURATION (so it maps onto the intensity curve).
+const STEP_OFFSETS = [0.06, 0.42, 0.78]
+
+function speak(text) {
   if (!SPEECH_OK) return
   try {
-    window.speechSynthesis.cancel() // avoid queue pile-up
     const u = new SpeechSynthesisUtterance(text)
     u.lang = 'fr-FR'
     const fr = window.speechSynthesis.getVoices().find((v) => v.lang && v.lang.startsWith('fr'))
@@ -33,23 +51,17 @@ function speakConsigne(text) {
 export function SensoryScene({ level, onDone }) {
   const audio = useAudioLayers()
   const [started, setStarted] = useState(false)
-  const [intensity, setIntensity] = useState(0)
+  const [intensity, setIntensity] = useState(START_INTENSITY)
   const reduced = REDUCED()
   const raf = useRef(null)
   const t0 = useRef(0)
-  const speechTimer = useRef(null)
+  const timers = useRef([])
 
-  const consigne = CONSIGNE[level]
-  const task =
-    level === 'fondamental'
-      ? "Écoutez la consigne et entourez l'image demandée."
-      : "Notez l'énoncé dicté pendant que le cours continue."
+  const steps = CONSIGNE[level]
 
   function stopSpeech() {
-    if (speechTimer.current) {
-      clearInterval(speechTimer.current)
-      speechTimer.current = null
-    }
+    timers.current.forEach(clearTimeout)
+    timers.current = []
     if (SPEECH_OK) {
       try { window.speechSynthesis.cancel() } catch { /* noop */ }
     }
@@ -58,20 +70,21 @@ export function SensoryScene({ level, onDone }) {
   useEffect(() => {
     if (!started || reduced) return
     t0.current = performance.now()
-    const DURATION = 20000
 
-    // Speak the consigne at constant volume, repeated, so the rising noise masks it.
-    speakConsigne(consigne)
-    speechTimer.current = setInterval(() => speakConsigne(consigne), 6500)
+    // Schedule each step once, at its point on the rising-noise curve.
+    timers.current = steps.map((line, i) =>
+      setTimeout(() => speak(line), STEP_OFFSETS[i] * DURATION)
+    )
 
     const tick = (now) => {
       const p = Math.min(1, (now - t0.current) / DURATION)
-      setIntensity(p)
-      audio.setIntensity(p)
+      const level = START_INTENSITY + (1 - START_INTENSITY) * p // floor -> 1
+      setIntensity(level)
+      audio.setIntensity(level)
       if (p < 1) {
         raf.current = requestAnimationFrame(tick)
       } else {
-        stopSpeech() // stop repeating once the scene is over
+        stopSpeech()
       }
     }
     raf.current = requestAnimationFrame(tick)
@@ -80,7 +93,7 @@ export function SensoryScene({ level, onDone }) {
       cancelAnimationFrame(raf.current)
       stopSpeech()
     }
-  }, [started, reduced, audio, consigne])
+  }, [started, reduced, audio, steps])
 
   async function begin() {
     if (!reduced) await audio.init()
@@ -96,7 +109,10 @@ export function SensoryScene({ level, onDone }) {
   if (!started) {
     return (
       <div className="space-y-4">
-        <p className="read">{task}</p>
+        <p className="read">
+          Une consigne en trois étapes va vous être donnée à voix haute. Essayez de la suivre
+          entièrement.
+        </p>
         <p className="text-sm text-amber-700">
           {SPEECH_OK
             ? '⚠ Cette scène comporte du son et une consigne dite à voix haute. Réglez votre volume.'
@@ -113,10 +129,11 @@ export function SensoryScene({ level, onDone }) {
     return (
       <div className="space-y-4 read">
         <p>
-          Imaginez : une consigne vous est donnée à voix haute — « {consigne} » — mais
-          pendant que vous tentez de la suivre, les chaises raclent, des voix chuchotent, un néon
-          grésille, le couloir résonne, une sonnerie retentit. Chaque couche s'ajoute, sans filtre,
-          et la consigne se noie dans le bruit. La tâche, simple au départ, devient presque impossible.
+          Imaginez : une consigne en trois étapes vous est donnée à voix haute —
+          « {steps[0]} {steps[1]} {steps[2]} » — mais pendant que vous tentez de la suivre, les
+          chaises raclent, des voix chuchotent, un néon grésille, le couloir résonne, une sonnerie
+          retentit. Le bruit, déjà fort, monte encore : la première étape passe, mais la dernière
+          se noie complètement. La tâche, simple au départ, devient presque impossible.
         </p>
         <button onClick={finish} className="rounded-lg bg-plai-teal px-4 py-2 font-semibold text-white">
           Terminer la scène
@@ -134,8 +151,10 @@ export function SensoryScene({ level, onDone }) {
           Écoutez la consigne et faites ce qu'elle demande…
         </p>
       ) : (
-        // No speech synthesis available: fall back to the written consigne.
-        <p className="read" style={{ filter: `blur(${blur}px)` }}>{consigne}</p>
+        // No speech synthesis available: fall back to the written steps.
+        <ol className="read list-decimal pl-6" style={{ filter: `blur(${blur}px)` }}>
+          {steps.map((s, i) => <li key={i}>{s}</li>)}
+        </ol>
       )}
 
       <div
@@ -147,10 +166,13 @@ export function SensoryScene({ level, onDone }) {
 
       {done && (
         <div className="relative space-y-3">
-          <p className="read rounded bg-slate-100 p-3">
-            La consigne était : <strong>« {consigne} »</strong>. Avez-vous pu la suivre
-            entièrement ?
-          </p>
+          <div className="read rounded bg-slate-100 p-3">
+            <p className="font-semibold">La consigne était :</p>
+            <ol className="list-decimal pl-6">
+              {steps.map((s, i) => <li key={i}>{s}</li>)}
+            </ol>
+            <p className="mt-2">Avez-vous capté les trois étapes — surtout la dernière ?</p>
+          </div>
           <button onClick={finish} className="rounded-lg bg-plai-teal px-4 py-2 font-semibold text-white">
             Terminer la scène
           </button>
