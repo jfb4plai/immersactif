@@ -190,15 +190,15 @@ export function SensoryScene({ level, onDone }) {
           <div
             aria-hidden
             className="fx-flicker pointer-events-none absolute inset-0 bg-white"
-            style={{ '--fmax': intensity * 0.14 }}
+            style={{ '--fmax': intensity * 0.22 }}
           />
           {/* Progressive glare / éblouissement (no flashing) */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
             style={{
-              opacity: intensity * 0.2,
-              background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,0.9), transparent 60%)',
+              opacity: intensity * 0.3,
+              background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,0.95), transparent 60%)',
             }}
           />
           {/* Slow peripheral drift (gentle movement, not a rotating beam) */}
@@ -207,8 +207,8 @@ export function SensoryScene({ level, onDone }) {
             className="fx-drift pointer-events-none absolute"
             style={{
               inset: '-25%',
-              opacity: intensity * 0.12,
-              background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), transparent 55%)',
+              opacity: intensity * 0.16,
+              background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 55%)',
             }}
           />
         </>
