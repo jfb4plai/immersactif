@@ -1,4 +1,5 @@
 import { formatRef } from '../data/references'
+import { CatChip } from './CatChip'
 
 export function MicroDebrief({ scene, gestures, selected, onToggle, onContinue }) {
   return (
@@ -39,7 +40,12 @@ export function MicroDebrief({ scene, gestures, selected, onToggle, onContinue }
               onChange={() => onToggle(g)}
               className="mt-1"
             />
-            <span className="read">{g.label}</span>
+            <span className="read">
+              {g.label}
+              <span className="ml-2 inline-block align-middle">
+                <CatChip cat={g.cat} cua={g.cua} />
+              </span>
+            </span>
           </label>
         ))}
       </fieldset>

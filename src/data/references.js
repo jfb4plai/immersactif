@@ -16,6 +16,9 @@ export const REFERENCES = {
   hubert2015: { authors: 'Hubert', year: 2015, rissId: 'dumas-01169754', note: 'information enseignants / prévisibilité' },
   barany2018: { authors: 'Barany & Charbonnier', year: 2018, rissId: 'dumas-01927713', note: 'TEACCH / emploi du temps visuel' },
   bartuccio2025: { authors: 'Bartuccio', year: 2025, rissId: 'dumas-05371195', note: 'aménager le support écrit / CUA' },
+  comberti2023: { authors: 'Comberti', year: 2023, rissId: 'dumas-04050038', note: 'camouflage social = conséquence, à coût élevé' },
+  burtz2022: { authors: 'Burtz', year: 2022, rissId: 'dumas-03884951', note: 'vécu scolaire des élèves TSA (qualitatif)' },
+  aubertmichel2024: { authors: 'Aubert Michel', year: 2024, rissId: 'dumas-04841652', note: 'une aide mal posée peut stigmatiser' },
 }
 
 export function formatRef(id) {

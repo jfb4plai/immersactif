@@ -26,8 +26,23 @@ export function Hub({ completedScenes, onOpen }) {
         <span className="text-xs text-slate-500">Lecture — non simulé</span>
       </button>
 
+      <button
+        onClick={() => onOpen('voices')}
+        className="w-full rounded-lg border-2 border-dashed border-slate-300 p-4 text-left"
+      >
+        <span className="block font-semibold">Paroles d'élèves</span>
+        <span className="text-xs text-slate-500">Le vécu de l'élève, d'après la recherche</span>
+      </button>
+
       <button onClick={() => onOpen('synthesis')} className="w-full rounded-lg bg-plai-orange p-4 font-semibold text-white">
         Ma fiche de gestes
+      </button>
+
+      <button
+        onClick={() => onOpen('limits')}
+        className="block w-full text-center text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
+      >
+        Ce que cet outil ne fait pas
       </button>
     </main>
   )

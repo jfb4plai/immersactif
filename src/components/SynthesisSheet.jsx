@@ -1,5 +1,7 @@
 import { buildSheet, canPrint } from '../lib/synthesis'
 import { REFERENCES } from '../data/references'
+import { GESTURE_INDEX } from '../data/gestures'
+import { CatChip } from './CatChip'
 
 export function SynthesisSheet({ selectedGestures, onPersonalize }) {
   const sheet = buildSheet(selectedGestures)
@@ -28,6 +30,9 @@ export function SynthesisSheet({ selectedGestures, onPersonalize }) {
         {sheet.items.map((it) => (
           <div key={it.id} className="rounded-lg border border-slate-200 p-3">
             <p className="font-medium read">{it.label}</p>
+            <div className="mt-1">
+              <CatChip cat={GESTURE_INDEX[it.id]?.cat} cua={GESTURE_INDEX[it.id]?.cua} />
+            </div>
             <label className="mt-2 block text-sm">
               <span className="text-slate-600">
                 Mon engagement — cette semaine, dans ma classe : quand ? pour qui ? comment ?

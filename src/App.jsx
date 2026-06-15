@@ -7,6 +7,8 @@ import { MicroDebrief } from './components/MicroDebrief'
 import { AccommodationRelief } from './components/AccommodationRelief'
 import { SynthesisSheet } from './components/SynthesisSheet'
 import { SocialPanel } from './components/SocialPanel'
+import { StudentVoices } from './components/StudentVoices'
+import { LimitsPanel } from './components/LimitsPanel'
 import { SensoryScene } from './components/scenes/SensoryScene'
 import { ImplicitScene } from './components/scenes/ImplicitScene'
 import { UnforeseenScene } from './components/scenes/UnforeseenScene'
@@ -49,6 +51,8 @@ export default function App() {
 
   function openScene(id) {
     if (id === 'social') return setView('social')
+    if (id === 'voices') return setView('voices')
+    if (id === 'limits') return setView('limits')
     if (id === 'synthesis') return setView('synthesis')
     // Replaying a single scene from the hub: start it on a full gauge so the
     // drop is legible again (the sequential Découverte run keeps its cumul).
@@ -165,6 +169,10 @@ export default function App() {
   }
 
   if (view === 'social') return <SocialPanel onBack={() => setView('hub')} />
+
+  if (view === 'voices') return <StudentVoices onBack={() => setView('hub')} />
+
+  if (view === 'limits') return <LimitsPanel onBack={() => setView('hub')} />
 
   if (view === 'synthesis') {
     return (

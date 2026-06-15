@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { EthicalBanner } from './EthicalBanner'
+import { LimitsPanel } from './LimitsPanel'
 
 function Choice({ label, selected, onClick }) {
   return (
@@ -18,12 +19,27 @@ function Choice({ label, selected, onClick }) {
 export function EntryScreen({ onStart }) {
   const [level, setLevel] = useState(null)
   const [mode, setMode] = useState(null)
+  const [showLimits, setShowLimits] = useState(false)
   const canStart = level && mode
+
+  if (showLimits) {
+    return (
+      <main className="mx-auto max-w-2xl p-6">
+        <LimitsPanel onBack={() => setShowLimits(false)} />
+      </main>
+    )
+  }
 
   return (
     <main className="mx-auto max-w-2xl p-6 space-y-6">
       <h1 className="text-2xl font-bold text-plai-teal">ImmersActif</h1>
       <EthicalBanner />
+      <button
+        onClick={() => setShowLimits(true)}
+        className="text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
+      >
+        Ce que cet outil ne fait pas
+      </button>
 
       <section className="space-y-2">
         <h2 className="font-semibold">Votre niveau</h2>
