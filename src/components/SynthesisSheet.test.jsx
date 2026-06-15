@@ -13,7 +13,7 @@ describe('SynthesisSheet', () => {
     )
     const printBtn = screen.getByRole('button', { name: /imprimer/i })
     expect(printBtn).toBeDisabled()
-    fireEvent.change(screen.getByLabelText(/pour ma classe/i), { target: { value: 'Concret' } })
+    fireEvent.change(screen.getByLabelText(/mon engagement/i), { target: { value: 'Concret' } })
     expect(onPersonalize).toHaveBeenCalledWith('g1', 'Concret')
     rerender(
       <SynthesisSheet

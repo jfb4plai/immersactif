@@ -19,8 +19,8 @@ export function SynthesisSheet({ selectedGestures, onPersonalize }) {
     <section className="mx-auto max-w-3xl space-y-4 p-4">
       <h2 className="text-xl font-semibold">Ma fiche — gestes pour ma classe</h2>
       <p className="read text-slate-600">
-        L'outil propose ; vous décidez. Reformulez au moins un geste pour votre classe avant
-        d'imprimer.
+        L'outil propose ; vous décidez. Pour au moins un geste, dites comment vous l'appliquerez —
+        quand, pour quel élève, concrètement — avant d'imprimer.
       </p>
 
       <div id="synthesis-print" className="space-y-4">
@@ -29,10 +29,13 @@ export function SynthesisSheet({ selectedGestures, onPersonalize }) {
           <div key={it.id} className="rounded-lg border border-slate-200 p-3">
             <p className="font-medium read">{it.label}</p>
             <label className="mt-2 block text-sm">
-              <span className="text-slate-600">Pour ma classe, concrètement…</span>
+              <span className="text-slate-600">
+                Mon engagement — cette semaine, dans ma classe : quand ? pour qui ? comment ?
+              </span>
               <textarea
                 value={it.personalization}
                 onChange={(e) => onPersonalize(it.id, e.target.value)}
+                placeholder="Ex. : dès lundi, pour [code élève], j'affiche la consigne au tableau avant de la dire."
                 className="mt-1 w-full rounded border border-slate-300 p-2 read"
                 rows={2}
               />

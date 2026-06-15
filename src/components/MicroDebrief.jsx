@@ -18,6 +18,16 @@ export function MicroDebrief({ scene, gestures, selected, onToggle, onContinue }
         </div>
       </div>
 
+      {scene.nuance && (
+        <div className="rounded-lg border-l-4 border-amber-400 bg-amber-50 p-3 read">
+          <p className="text-xs font-semibold uppercase text-amber-700">À nuancer</p>
+          <p className="mt-1">{scene.nuance}</p>
+        </div>
+      )}
+
+      <p className="font-medium read">
+        Cochez le ou les gestes que vous vous engagez à essayer cette semaine :
+      </p>
       <fieldset className="space-y-2">
         <legend className="sr-only">Gestes à retenir</legend>
         {gestures.map((g) => (

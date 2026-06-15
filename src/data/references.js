@@ -12,6 +12,10 @@ export const REFERENCES = {
   vallelian2022: { authors: 'Vallélian', year: 2022, rissId: 'W4220658962', note: 'habiletés sociales' },
   passages2024: { authors: 'Projet Passages', year: 2024, rissId: 'hal-05158229', note: 'accompagnement social' },
   meyer2022: { authors: 'Meyer et al.', year: 2022, rissId: 'hal-03900700', note: 'outils numériques inclusion TSA' },
+  moutai2025: { authors: 'Moutai', year: 2025, rissId: 'dumas-05324477', note: 'profil hyper ET hypo chez un même élève' },
+  hubert2015: { authors: 'Hubert', year: 2015, rissId: 'dumas-01169754', note: 'information enseignants / prévisibilité' },
+  barany2018: { authors: 'Barany & Charbonnier', year: 2018, rissId: 'dumas-01927713', note: 'TEACCH / emploi du temps visuel' },
+  bartuccio2025: { authors: 'Bartuccio', year: 2025, rissId: 'dumas-05371195', note: 'aménager le support écrit / CUA' },
 }
 
 export function formatRef(id) {

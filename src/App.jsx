@@ -4,6 +4,7 @@ import { EntryScreen } from './components/EntryScreen'
 import { Hub } from './components/Hub'
 import { SceneShell } from './components/SceneShell'
 import { MicroDebrief } from './components/MicroDebrief'
+import { AccommodationRelief } from './components/AccommodationRelief'
 import { SynthesisSheet } from './components/SynthesisSheet'
 import { SocialPanel } from './components/SocialPanel'
 import { SensoryScene } from './components/scenes/SensoryScene'
@@ -58,7 +59,7 @@ export default function App() {
 
   function finishScene() {
     dispatch({ type: 'DRAIN_ENERGY', amount: SCENE_DRAIN[activeScene] })
-    setView('debrief')
+    setView('relief') // show the same situation accommodated, then debrief
   }
 
   function afterDebrief() {
@@ -85,6 +86,12 @@ export default function App() {
       >
         <SceneComp level={state.level} onDone={finishScene} />
       </SceneShell>
+    )
+  }
+
+  if (view === 'relief') {
+    return (
+      <AccommodationRelief scene={SCENES[activeScene]} onContinue={() => setView('debrief')} />
     )
   }
 
