@@ -51,6 +51,22 @@ export function GuidePanel({ onBack }) {
         </p>
       </div>
 
+      {/* Pourquoi cet outil — ancrage RISS */}
+      <section className="space-y-2">
+        <h3 className="font-semibold">Pourquoi cet outil ?</h3>
+        <p className="read text-sm text-slate-700">
+          Plus de 95 % des enseignants déclarent n'avoir reçu aucune formation sur le TSA (Dhahri, 2025).
+          La recherche reconnaît la sensibilisation aux mécanismes vécus par l'élève comme un levier du
+          changement de pratiques (Hubert, 2015 ; Burtz, 2022). Comprendre <em>pourquoi</em> un geste
+          simple — écrire la consigne au tableau, annoncer un changement à l'avance — change quelque
+          chose, c'est ce qui rend l'aménagement durable.
+        </p>
+        <p className="read text-sm text-slate-500">
+          ImmersActif ne remplace pas une formation spécialisée. Il propose un point d'entrée
+          expérientiel, ancré dans les mécanismes documentés, pour que les gestes choisis aient un sens.
+        </p>
+      </section>
+
       {/* Les 3 scènes */}
       <section className="space-y-2">
         <h3 className="font-semibold">Les 3 situations</h3>
@@ -109,6 +125,13 @@ export function GuidePanel({ onBack }) {
           Les meilleurs aménagements se construisent avec l'élève, la famille et l'équipe — pas seul devant un écran.
         </p>
       </div>
+
+      <p className="read text-xs text-slate-400">
+        Repères RISS : Dhahri (2025, tel-05405230) — formation insuffisante des enseignants au TSA ;
+        Hubert (2015, dumas-01169754) — sensibilisation comme levier du changement de pratiques ;
+        Burtz (2022, dumas-03884951) — vécu scolaire TSA et nécessité d'adaptation ;
+        Nivet (2016, dumas-01579221) — gestes professionnels en contexte d'inclusion autisme.
+      </p>
 
       <div className="flex gap-3 print:hidden">
         <button onClick={onBack} className="rounded-lg border border-slate-300 px-4 py-2">
