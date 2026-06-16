@@ -39,6 +39,13 @@ export function Hub({ completedScenes, onOpen }) {
       </button>
 
       <button
+        onClick={() => onOpen('guide')}
+        className="block w-full text-center text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
+      >
+        Mode d'emploi
+      </button>
+
+      <button
         onClick={() => onOpen('limits')}
         className="block w-full text-center text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
       >

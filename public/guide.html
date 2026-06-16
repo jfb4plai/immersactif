@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ImmersActif — Mode d'emploi</title>
+  <style>
+    :root {
+      --teal: #0a9370;
+      --orange: #f97316;
+      --amber: #b45309;
+      --amber-bg: #fffbeb;
+      --amber-border: #fcd34d;
+      --teal-bg: #f0fdf9;
+      --teal-border: #99f6e4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1e293b;
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--teal);
+    }
+    header h1 { font-size: 1.5rem; color: var(--teal); }
+    header .meta { font-size: 0.85rem; color: #64748b; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.25rem 0.75rem; }
+    h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #0f172a; }
+    section { margin-bottom: 2rem; }
+    .card {
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-teal { background: var(--teal-bg); border: 1px solid var(--teal-border); }
+    .card-amber { border-left: 4px solid var(--amber-border); background: var(--amber-bg); }
+    .card-scene {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .scene-title { font-weight: 600; }
+    .scene-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--amber);
+      border: 1px solid var(--amber-border);
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.5rem;
+    }
+    .scene-desc { font-size: 0.9rem; color: #475569; margin-top: 0.25rem; }
+    ol { padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; font-size: 0.95rem; color: #334155; }
+    li::marker { color: var(--teal); font-weight: 700; }
+    .note { font-size: 0.82rem; color: #64748b; margin-top: 0.5rem; }
+    .deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .col-titre { font-weight: 600; margin-bottom: 0.5rem; }
+    strong { color: #0f172a; }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    a { color: var(--teal); }
+    @media (max-width: 600px) {
+      .deux-colonnes { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { padding: 1rem; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ImmersActif — Mode d'emploi</h1>
+  <span class="meta">35 – 45 min · 3 scènes</span>
+</header>
+
+<!-- Objectif -->
+<section>
+  <div class="card card-teal">
+    <p>
+      ImmersActif propose 3 situations simulées pour <strong>approcher</strong> certains mécanismes
+      vécus par des élèves porteurs de TSA : filtrage sensoriel, implicite langagier, imprévisibilité.
+      L'objectif n'est pas de « savoir ce que c'est » —
+      c'est de choisir des <strong>gestes professionnels concrets</strong> à tester dans sa classe.
+    </p>
+  </div>
+</section>
+
+<!-- Les 3 scènes -->
+<section>
+  <h2>Les 3 situations</h2>
+
+  <div class="card-scene">
+    <div class="scene-title">1. La consigne dans le bruit <span class="scene-badge">casque recommandé</span></div>
+    <div class="scene-desc">Filtrage sensoriel : consigne orale dans un environnement bruyant qui monte progressivement.</div>
+  </div>
+
+  <div class="card-scene">
+    <div class="scene-title">2. J'ai fait ce que vous avez dit</div>
+    <div class="scene-desc">Implicite langagier : des consignes ambiguës interprétées à la lettre, sans malveillance.</div>
+  </div>
+
+  <div class="card-scene">
+    <div class="scene-title">3. Le local a changé</div>
+    <div class="scene-desc">Imprévisibilité : rupture d'une routine automatisée, sans annonce préalable.</div>
+  </div>
+</section>
+
+<!-- Deux colonnes : solo / formation -->
+<section>
+  <div class="deux-colonnes">
+
+    <div>
+      <h2>Utilisation en autonomie</h2>
+      <p class="note" style="margin-bottom:0.75rem;">Mode Découverte · ~35 min</p>
+      <ol>
+        <li>Accédez à l'outil depuis un navigateur (PC, tablette, téléphone).</li>
+        <li>Choisissez votre niveau : <strong>fondamental</strong> ou <strong>secondaire</strong> — les exemples s'adaptent.</li>
+        <li>Choisissez le mode <strong>Découverte</strong> : les 3 scènes s'enchaînent avec une jauge d'énergie.</li>
+        <li>Scène 1 : casque ou écouteurs recommandés (bruit de fond).</li>
+        <li>Après chaque scène : la même situation <em>avec aménagements</em> — ressentir la différence — puis débriefing.</li>
+        <li>Après les 3 scènes : accès au parcours complet et à votre <strong>fiche de gestes imprimable</strong>.</li>
+      </ol>
+      <p class="note">Vos sélections sont sauvegardées dans le navigateur. Aucune connexion requise après le premier chargement.</p>
+    </div>
+
+    <div>
+      <h2>Utilisation en formation</h2>
+      <p class="note" style="margin-bottom:0.75rem;">Mode Animateur · 15 – 20 min par scène</p>
+      <ol>
+        <li>Sélectionnez le mode <strong>Animateur</strong> : accès direct à chaque scène, sans ordre imposé.</li>
+        <li>Lancez la scène sur grand écran — <em>sans expliquer à l'avance ce qui va se passer</em>.</li>
+        <li>Discussion ouverte : « Qu'avez-vous ressenti ? Qu'attendiez-vous ? »</li>
+        <li>Montrez la situation avec aménagements, puis débriefing collectif.</li>
+        <li>Engagement individuel : chaque participant complète sa propre fiche de gestes.</li>
+      </ol>
+      <p class="note">La fiche de gestes est personnalisable et imprimable depuis le parcours.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Parcours après les scènes -->
+<section>
+  <h2>Le parcours — après les 3 scènes</h2>
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap:0.75rem;">
+    <div class="card-scene">
+      <div class="scene-title">Et les interactions sociales ?</div>
+      <div class="scene-desc">Lecture — mécanismes non simulables (cognition sociale, théorie de l'esprit).</div>
+    </div>
+    <div class="card-scene">
+      <div class="scene-title">Paroles d'élèves</div>
+      <div class="scene-desc">Synthèses issues de la recherche — pas des citations d'élèves réels.</div>
+    </div>
+    <div class="card-scene">
+      <div class="scene-title" style="color:var(--orange)">Ma fiche de gestes</div>
+      <div class="scene-desc">Les gestes sélectionnés, avec votre engagement personnalisé. Imprimable.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Posture -->
+<section>
+  <div class="card card-amber">
+    <p>
+      <strong>Posture : « approcher pour ajuster »</strong> — jamais « je sais maintenant ce que c'est ».
+      L'expérience approche certains mécanismes — jamais le vécu d'un élève en particulier.
+      Les meilleurs aménagements se construisent avec l'élève, la famille et l'équipe pluridisciplinaire (PIA).
+    </p>
+  </div>
+</section>
+
+<!-- Ce que l'outil ne fait pas -->
+<section>
+  <h2>Ce que cet outil ne fait pas</h2>
+  <ul style="padding-left:1.25rem; font-size:0.92rem; color:#475569;">
+    <li>Il ne diagnostique pas — seuls des professionnels posent un diagnostic.</li>
+    <li>Il ne représente pas tous les profils TSA — le spectre est large, chaque élève est individuel.</li>
+    <li>Il ne remplace ni l'élève, ni la famille, ni l'équipe.</li>
+    <li>Il approche certains mécanismes, il ne les reproduit pas.</li>
+    <li>Les gestes proposés sont des pistes, pas des recettes — à individualiser avec l'élève.</li>
+  </ul>
+</section>
+
+<footer>
+  <span>ImmersActif · PLAI — Pôle Liégeois d'Accompagnement vers une École Inclusive</span>
+  <a href="/" class="no-print">← Retour à l'application</a>
+</footer>
+
+</body>
+</html>

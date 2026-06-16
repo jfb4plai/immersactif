@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { EthicalBanner } from './EthicalBanner'
 import { LimitsPanel } from './LimitsPanel'
+import { GuidePanel } from './GuidePanel'
 
 function Choice({ label, selected, onClick }) {
   return (
@@ -20,6 +21,7 @@ export function EntryScreen({ onStart }) {
   const [level, setLevel] = useState(null)
   const [mode, setMode] = useState(null)
   const [showLimits, setShowLimits] = useState(false)
+  const [showGuide, setShowGuide] = useState(false)
   const canStart = level && mode
 
   if (showLimits) {
@@ -30,16 +32,32 @@ export function EntryScreen({ onStart }) {
     )
   }
 
+  if (showGuide) {
+    return (
+      <main className="mx-auto max-w-2xl p-6">
+        <GuidePanel onBack={() => setShowGuide(false)} />
+      </main>
+    )
+  }
+
   return (
     <main className="mx-auto max-w-2xl p-6 space-y-6">
       <h1 className="text-2xl font-bold text-plai-teal">ImmersActif</h1>
       <EthicalBanner />
-      <button
-        onClick={() => setShowLimits(true)}
-        className="text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
-      >
-        Ce que cet outil ne fait pas
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={() => setShowGuide(true)}
+          className="text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
+        >
+          Mode d'emploi
+        </button>
+        <button
+          onClick={() => setShowLimits(true)}
+          className="text-sm text-slate-500 underline underline-offset-2 hover:text-plai-teal"
+        >
+          Ce que cet outil ne fait pas
+        </button>
+      </div>
 
       <section className="space-y-2">
         <h2 className="font-semibold">Votre niveau</h2>
