@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        plai: { teal: '#0a9370', orange: '#f97316' },
+        plai: { teal: '#0a9370', orange: '#f97316', cream: '#faf9f7' },
       },
       fontFamily: {
         ui: ['Inter', 'system-ui', 'sans-serif'],
         read: ['Arial', 'Helvetica', 'sans-serif'],
+        brand: ['"DM Serif Display"', 'Georgia', 'serif'],
       },
     },
   },

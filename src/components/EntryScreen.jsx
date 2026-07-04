@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { EthicalBanner } from './EthicalBanner'
 import { LimitsPanel } from './LimitsPanel'
 import { GuidePanel } from './GuidePanel'
+import { BrandHeader } from './BrandHeader'
+import { PlaiFooter } from './PlaiFooter'
 
 function Choice({ label, selected, onClick }) {
   return (
@@ -42,7 +44,7 @@ export function EntryScreen({ onStart }) {
 
   return (
     <main className="mx-auto max-w-2xl p-6 space-y-6">
-      <h1 className="text-2xl font-bold text-plai-teal">ImmersActif</h1>
+      <BrandHeader />
       <EthicalBanner />
       <div className="flex gap-4">
         <button
@@ -90,6 +92,8 @@ export function EntryScreen({ onStart }) {
       >
         Commencer
       </button>
+
+      <PlaiFooter />
     </main>
   )
 }

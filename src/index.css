@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root { color-scheme: light; }
-body { @apply font-ui text-[16px] text-slate-800 bg-slate-50; }
+body { @apply font-ui text-[16px] text-slate-800 bg-plai-cream; }
 .read { @apply font-read text-[16px] leading-relaxed; }
 
 /* Print: only the synthesis sheet is visible */

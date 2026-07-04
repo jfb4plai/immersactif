@@ -1,10 +1,14 @@
 import { SCENES } from '../data/scenes'
 import { SCENE_ORDER } from '../lib/hub'
+import { PlaiFooter } from './PlaiFooter'
 
 export function Hub({ completedScenes, onOpen }) {
   return (
     <main className="mx-auto max-w-3xl space-y-4 p-4">
-      <h1 className="text-2xl font-bold text-plai-teal">Parcours</h1>
+      <div className="flex items-center gap-3">
+        <img src="/plai-logo.jpg" alt="Logo PLAI" className="h-8 w-8 shrink-0 rounded" />
+        <h1 className="font-brand text-2xl text-plai-teal">Parcours</h1>
+      </div>
       <div className="grid gap-3 sm:grid-cols-3">
         {SCENE_ORDER.map((id) => (
           <button
@@ -51,6 +55,8 @@ export function Hub({ completedScenes, onOpen }) {
       >
         Ce que cet outil ne fait pas
       </button>
+
+      <PlaiFooter />
     </main>
   )
 }
