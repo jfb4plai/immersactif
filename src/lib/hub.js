@@ -1,4 +1,4 @@
-export const SCENE_ORDER = ['sensory', 'implicit', 'unforeseen']
+export const SCENE_ORDER = ['sensory', 'implicit', 'context', 'unforeseen']
 
 export function isHubAvailable({ mode, completedScenes }) {
   if (mode === 'animateur') return true

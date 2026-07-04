@@ -12,6 +12,7 @@ import { LimitsPanel } from './components/LimitsPanel'
 import { GuidePanel } from './components/GuidePanel'
 import { SensoryScene } from './components/scenes/SensoryScene'
 import { ImplicitScene } from './components/scenes/ImplicitScene'
+import { ContextScene } from './components/scenes/ContextScene'
 import { UnforeseenScene } from './components/scenes/UnforeseenScene'
 import { EnergyGauge } from './components/EnergyGauge'
 import { SCENES } from './data/scenes'
@@ -22,6 +23,7 @@ import { nextNarrativeScene, SCENE_ORDER } from './lib/hub'
 const SCENE_COMPONENTS = {
   sensory: SensoryScene,
   implicit: ImplicitScene,
+  context: ContextScene,
   unforeseen: UnforeseenScene,
 }
 
@@ -154,13 +156,13 @@ export default function App() {
     return (
       <main className="mx-auto max-w-2xl space-y-4 p-6 text-center">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          Les trois situations sont terminées
+          Les quatre situations sont terminées
         </p>
         <h2 className="text-xl font-semibold">Il vous reste l'après-midi.</h2>
         <p className="read text-slate-600">
-          Vous avez traversé le bruit, l'implicite et l'imprévu — et votre énergie ne reviendra pas
-          à 100&nbsp;%. L'élève, lui, recommencera demain. Vous pouvez maintenant revisiter chaque
-          scène et composer votre fiche de gestes.
+          Vous avez traversé le bruit, l'implicite, le contexte et l'imprévu — et votre énergie ne
+          reviendra pas à 100&nbsp;%. L'élève, lui, recommencera demain. Vous pouvez maintenant
+          revisiter chaque scène et composer votre fiche de gestes.
         </p>
         <div className="mx-auto max-w-xs"><EnergyGauge energy={state.energy} /></div>
         <button onClick={() => setView('hub')} className="rounded-lg bg-plai-teal px-4 py-2 font-semibold text-white">

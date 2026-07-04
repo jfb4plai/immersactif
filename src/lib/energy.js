@@ -1,9 +1,10 @@
 // Drain amounts sum to 90 so the matinée ends "low/critical" but not at 0,
 // reinforcing the closing line "Il vous reste l'après-midi."
 export const SCENE_DRAIN = {
-  sensory: 35,
-  implicit: 25,
-  unforeseen: 30,
+  sensory: 30,
+  implicit: 20,
+  context: 15,
+  unforeseen: 25,
 }
 
 export function energyBand(energy) {

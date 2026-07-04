@@ -44,6 +44,29 @@ export const SCENES = {
       refs: ['durand2018', 'petit2023'],
     },
   },
+  context: {
+    title: 'Le sens dépend du contexte',
+    recap: "Hors contexte, une même séquence se comprend tout autrement — reconstruire le cadre a un coût permanent.",
+    refs: ['schumacher2018', 'raffin2012', 'causse2022', 'petit2023'],
+    debrief: {
+      lived: "Vous avez répondu à ces questions avec assurance, et vos réponses étaient logiques — mais fausses. Ce que vous venez de faire porte un nom : la désambiguïsation par le contexte. D'ordinaire, le contexte lève l'ambiguïté d'un texte sans même qu'on s'en aperçoive. Ici il manquait : privé du cadre d'ensemble, votre esprit a bâti une histoire cohérente détail par détail — c'est le rôle de la cohérence centrale, relier les détails au tout qui leur donne leur sens.",
+      student: "Certains élèves ne reconstruisent pas spontanément ce contexte, et ce coût reste marqué et durable dans le fonctionnement TSA. Ils restent sur la lecture locale, littérale, sans la réviser quand le cadre arrive. Ce n'est pas un manque de compréhension : c'est un effort permanent pour désambiguïser ce que les autres infèrent sans y penser.",
+      adjust: "Donner le contexte avant la lecture, pas après :",
+    },
+    // Anti-caricature: à cet âge l'inférence est en construction chez tous les enfants.
+    nuance:
+      "À 5-7 ans (M3, P1-P2), cette capacité d'inférence est en construction chez tous les enfants, avec de fortes variations de l'un à l'autre. On ne décrit pas un déficit mais un degré et un coût : jamais « le neurotypique réussit / l'élève TSA échoue ».",
+    accommodation: {
+      changes: [
+        "Le contexte est posé avant la lecture : « c'est une histoire d'hiver, avec un bonhomme de neige ».",
+        "Une image du contexte accompagne le texte.",
+        "On vérifie le sens en faisant reformuler, au lieu de supposer que « lire » = « comprendre ».",
+      ],
+      relief:
+        "L'inférence coûteuse devient inutile : le cadre est donné, l'élève lit avec la bonne clé dès le départ.",
+      refs: ['schumacher2018', 'causse2022'],
+    },
+  },
   unforeseen: {
     title: 'Le local a changé',
     recap: "Un imprévu non annoncé fait s'effondrer les repères et coûte cher sur le plan cognitif.",

@@ -32,6 +32,20 @@ export const GESTURES = {
       { id: 'is3', label: "J'évite l'ironie et les expressions imagées dans les consignes", cat: 'pedagogique' },
     ],
   },
+  context: {
+    fondamental: [
+      { id: 'cf1', label: "J'installe le contexte avant de lire (« c'est une histoire d'hiver, il y a un bonhomme de neige »)", cat: 'pedagogique', cua: true },
+      { id: 'cf2', label: "Je fais reformuler l'élève avant d'avancer, au lieu de vérifier seulement qu'il a « lu »", cat: 'pedagogique', cua: true },
+      { id: 'cf3', label: "Quand une réponse me paraît absurde, je cherche d'abord quel détail l'a menée là", cat: 'pedagogique' },
+      { id: 'cf4', label: "J'accompagne le texte d'une image qui montre le contexte", cat: 'materiel', cua: true },
+    ],
+    secondaire: [
+      { id: 'cs1', label: "Je donne le cadre (thème, situation, intention) avant de lancer la lecture d'un texte", cat: 'pedagogique', cua: true },
+      { id: 'cs2', label: "Une réponse rapide et assurée n'est pas une preuve de compréhension : je vérifie le sens, pas la vitesse", cat: 'pedagogique' },
+      { id: 'cs3', label: "Je repère les textes à double lecture (métaphore, sous-entendu, récit à chute) et je les explicite avant l'erreur", cat: 'pedagogique', cua: true },
+      { id: 'cs4', label: "Avant de corriger, je valide la logique de l'élève (« ta réponse se tenait ») pour ne pas casser sa confiance", cat: 'pedagogique' },
+    ],
+  },
   unforeseen: {
     fondamental: [
       { id: 'uf1', label: "J'affiche l'emploi du temps du jour et je signale les changements dès l'accueil", cat: 'organisationnel', cua: true },

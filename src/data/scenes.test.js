@@ -3,7 +3,7 @@ import { GESTURES } from './gestures'
 import { SCENES } from './scenes'
 import { REFERENCES } from './references'
 
-const SCENE_IDS = ['sensory', 'implicit', 'unforeseen']
+const SCENE_IDS = ['sensory', 'implicit', 'context', 'unforeseen']
 
 describe('scene content', () => {
   it('each scene has 3-5 gestures per level', () => {

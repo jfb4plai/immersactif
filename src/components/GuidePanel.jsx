@@ -10,6 +10,11 @@ const SCENES = [
     desc: "Implicite langagier : des consignes ambiguës interprétées à la lettre, sans malveillance.",
   },
   {
+    title: 'Le sens dépend du contexte',
+    note: '',
+    desc: "Désambiguïsation par le contexte : un extrait de livre pour enfants qui, hors contexte, se comprend tout autrement.",
+  },
+  {
     title: 'Le local a changé',
     note: '',
     desc: "Imprévisibilité : rupture d'une routine automatisée, sans annonce préalable.",
@@ -18,10 +23,10 @@ const SCENES = [
 
 const FLOW = [
   "Choisissez votre niveau (fondamental / secondaire) — les exemples s'adaptent.",
-  "Mode Découverte : les 3 scènes s'enchaînent, avec une jauge d'énergie qui descend au fil de la matinée.",
+  "Mode Découverte : les 4 scènes s'enchaînent, avec une jauge d'énergie qui descend au fil de la matinée.",
   "Chaque scène se termine par la même situation avec aménagements simples : ressentir la différence.",
   "Débriefing : ancrer ce que vous venez de vivre, choisir 1 à 3 gestes à tester.",
-  "Après les 3 scènes : accès au parcours complet et à votre fiche de gestes imprimable.",
+  "Après les 4 scènes : accès au parcours complet et à votre fiche de gestes imprimable.",
 ]
 
 const ANIM = [
@@ -38,14 +43,14 @@ export function GuidePanel({ onBack }) {
       <div className="flex items-start justify-between gap-4">
         <h2 className="text-xl font-semibold">Mode d'emploi</h2>
         <span className="shrink-0 rounded border border-slate-200 px-3 py-1 text-sm text-slate-500">
-          35 – 45 min · 3 scènes
+          40 – 50 min · 4 scènes
         </span>
       </div>
 
       {/* Objectif */}
       <div className="rounded-lg border border-plai-teal bg-teal-50 p-4">
         <p className="read text-sm">
-          ImmersActif propose 3 situations simulées pour <strong>approcher</strong> certains mécanismes
+          ImmersActif propose 4 situations simulées pour <strong>approcher</strong> certains mécanismes
           vécus par des élèves porteurs de TSA. L'objectif n'est pas de « savoir ce que c'est » —
           c'est de choisir des <strong>gestes professionnels concrets</strong> à tester en classe.
         </p>
@@ -67,9 +72,9 @@ export function GuidePanel({ onBack }) {
         </p>
       </section>
 
-      {/* Les 3 scènes */}
+      {/* Les 4 scènes */}
       <section className="space-y-2">
-        <h3 className="font-semibold">Les 3 situations</h3>
+        <h3 className="font-semibold">Les 4 situations</h3>
         <ol className="space-y-2">
           {SCENES.map((s, i) => (
             <li key={i} className="rounded border border-slate-200 p-3">

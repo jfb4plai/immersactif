@@ -2,6 +2,7 @@
 
 Date : 2026-06-12
 Statut : validé section par section avec JF (brainstorming complet)
+Mise à jour 2026-07-04 : ajout d'un 4e temps « Le sens dépend du contexte » (désambiguïsation par le contexte / cohérence centrale). Le parcours passe de 3 à 4 scènes.
 
 ## Objectif
 
@@ -23,11 +24,11 @@ App web interactive pour enseignants FWB (fondamental + secondaire) : approcher 
 1. Avertissement éthique (obligatoire).
 2. Choix du niveau : **fondamental** ou **secondaire** (variante des scènes).
 3. Choix du mode :
-   - **Découverte** (défaut) : parcours narratif "une matinée" — 3 scènes enchaînées + micro-débriefings + fiche synthèse. Le hub se déverrouille après un premier passage complet.
+   - **Découverte** (défaut) : parcours narratif "une matinée" — 4 scènes enchaînées + micro-débriefings + fiche synthèse. Le hub se déverrouille après un premier passage complet.
    - **Animateur** : hub immédiat, accès direct aux scènes, micro-débriefings désactivables, pas de fiche imposée.
 
 ### Hub
-3 cartes-scènes (sensoriel, consignes, imprévu) + 1 carte "Et les interactions sociales ?" (lecture, visuellement distincte) + accès fiche synthèse.
+4 cartes-scènes (sensoriel, consignes, contexte, imprévu) + 1 carte "Et les interactions sociales ?" (lecture, visuellement distincte) + accès fiche synthèse.
 
 ### Pendant une scène
 Bouton "sortir de la scène" permanent — repris en débriefing : *l'élève, lui, ne peut pas sortir.*
@@ -52,7 +53,12 @@ Chaque scène existe en variante fondamental / secondaire. Structure commune : m
 - Consignes réelles de classe ("prenez une feuille", "dépêchez-vous de finir", "on range") → l'utilisateur choisit une interprétation → sa lecture, logique, n'était pas celle attendue → il se fait reprendre.
 - Débriefing nuancé : la littéralité n'est **pas systématique** (Petit 2023, tel-04575648), mais l'inférence de l'implicite a un coût permanent (Girard et al. 2022, hal-03816069 ; Durand 2018, dumas-02114337).
 
-### Scène 3 — L'imprévu ("Le local a changé")
+### Scène 3 — Le contexte ("Le sens dépend du contexte")
+- Un extrait de conversation d'un livre pour enfants (priorité M3 / P1-P2) est présenté **hors contexte**. L'utilisateur répond à 3 questions dont la réponse spontanée, logique détail par détail, est presque toujours fausse. Le **contexte** est alors donné (une phrase + image) et renverse totalement la première lecture. Deux extraits enchaînés (bonhomme de neige, bulbe de tulipe) : le second démontre que l'avertissement ne suffit pas — on ré-ancre sur le local automatiquement.
+- Débriefing : **désambiguïsation par le contexte** (Raffin-Desjardins 2012, dumas-00730783) et faiblesse de **cohérence centrale** — le contexte est nécessaire à la compréhension (Schumacher-Alcaraz 2018, hal-03870229). Distinct de la Scène 2 : ici, difficulté à raccrocher au cadre global, pas double sens d'une consigne.
+- Garde-fou développemental non-déficitaire : à 5-7 ans, l'inférence est en construction chez tous les enfants (Causse 2022, tel-04149404) — jamais « le neurotypique réussit / l'élève TSA échoue ».
+
+### Scène 4 — L'imprévu ("Le local a changé")
 - L'app installe une routine (horaire visuel, repères), l'utilisateur s'appuie dessus pour anticiper → bascule : remplaçant, changement de local. Les prédictions échouent, la jauge plonge.
 - Débriefing : intolérance au changement, détresse face aux transitions (critères DSM-5 repris dans le corpus RISS, p.ex. dumas-05344623).
 
@@ -91,6 +97,9 @@ Chaque scène existe en variante fondamental / secondaire. Structure commune : m
 | Traitement sensoriel | Fino 2017 | dumas-01562085 |
 | Particularités sensorielles | Dubreuil 2019 | dumas-02178074 |
 | Littéralité nuancée | Petit 2023 | tel-04575648 |
+| Cohérence centrale / contexte nécessaire au sens | Schumacher-Alcaraz 2018 | hal-03870229 |
+| Désambiguïsation par le contexte | Raffin-Desjardins 2012 | dumas-00730783 |
+| Inférence 5-7 ans / littérature de jeunesse | Causse 2022 | tel-04149404 |
 | Langage figuré / inférences | Girard et al. 2022 | hal-03816069 |
 | Actes indirects de langage | Durand 2018 | dumas-02114337 |
 | Routines / DSM-5 | Braida-Bardinaud 2025 | dumas-05344623 |

@@ -19,6 +19,9 @@ export const REFERENCES = {
   comberti2023: { authors: 'Comberti', year: 2023, rissId: 'dumas-04050038', note: 'camouflage social = conséquence, à coût élevé' },
   burtz2022: { authors: 'Burtz', year: 2022, rissId: 'dumas-03884951', note: 'vécu scolaire des élèves TSA (qualitatif)' },
   aubertmichel2024: { authors: 'Aubert Michel', year: 2024, rissId: 'dumas-04841652', note: 'une aide mal posée peut stigmatiser' },
+  schumacher2018: { authors: 'Schumacher-Alcaraz', year: 2018, rissId: 'hal-03870229', note: 'cohérence centrale : le contexte est nécessaire à la compréhension' },
+  raffin2012: { authors: 'Raffin-Desjardins', year: 2012, rissId: 'dumas-00730783', note: 'désambiguïsation par le contexte (levée automatique de l\'ambiguïté)' },
+  causse2022: { authors: 'Causse', year: 2022, rissId: 'tel-04149404', note: 'inférence 5-7 ans via littérature de jeunesse, variations développementales' },
 }
 
 export function formatRef(id) {
