@@ -4,7 +4,7 @@
 export function BrandHeader() {
   return (
     <header className="flex items-center gap-3">
-      <img src="/plai-logo.jpg" alt="Logo PLAI" className="h-8 w-8 shrink-0 rounded" />
+      <img src="/plai-logo.jpg" alt="Logo PLAI" className="h-8 w-auto shrink-0 rounded object-contain" />
       <span className="font-brand text-xl text-plai-teal">ImmersActif</span>
       <span className="ml-auto text-right text-xs leading-tight text-slate-400">
         Pôle Territorial
