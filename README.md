@@ -55,3 +55,11 @@ GitHub `jfb4plai/immersactif` (branche `main`) → Vercel (URL `immersactif.verc
 
 - Design validé : [docs/specs/2026-06-12-immersactif-design.md](docs/specs/2026-06-12-immersactif-design.md)
 - Plan d'implémentation : [docs/superpowers/plans/2026-06-13-immersactif.md](docs/superpowers/plans/2026-06-13-immersactif.md)
+
+## Licences
+
+- **Code** : [PolyForm Noncommercial 1.0.0](LICENSE). Usage non commercial uniquement.
+- **Contenus pédagogiques** : [CC BY-NC-SA 4.0](LICENSE-CONTENT.md). Réutilisation et adaptation non commerciales, avec attribution et partage dans les mêmes conditions.
+- **Logo et identité visuelle PLAI** : tous droits réservés (voir `LICENSE-CONTENT.md`).
+
+Auteur : Jean-François Beguin, Référent numérique, https://jfb4plai.com
