@@ -12,6 +12,17 @@ export function PlaiFooter() {
           jeanfrancois.beguin@ens.ecl.be
         </a>
       </p>
+      <p>
+        Code :{' '}
+        <a href="https://polyformproject.org/licenses/noncommercial/1.0.0" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+          PolyForm Noncommercial 1.0.0
+        </a>
+        {' · '}Contenus :{' '}
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+          CC BY-NC-SA 4.0
+        </a>
+        {' · '}Jean-François Beguin, jfb4plai.com
+      </p>
     </footer>
   )
 }
